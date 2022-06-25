@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LampadaComJs</title>
+    <style>
+        *{
+            margin: 0;
+            background: rgb(32, 32, 32);
+            align-items: center;
+        }
+        h1{
+            color: rgb(255, 0, 170);
+            text-align: center;
+            font-size: 3.5rem;
+        }
+        head, main{
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        button{
+            width: 140px;
+            height: 40px;
+            background-color: rgb(231, 231, 231);
+            color: #000;
+            cursor: pointer;
+            border-radius: 60px;
+            
+        }
+        #turnOn:hover{
+            background: rgb(84, 247, 84);
+            color: aliceblue;
+            font-size: 1.2rem;
+        }
+        #turnOff:hover{
+            background: rgb(255, 0, 55);
+            color: aliceblue;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lâmpada com JS</h1>
+    </header>
+    <main>
+        <div>
+            <img src="./img/desligada.png" alt="Lámpada" id="lamp" size=800px>
+        </div>
+        <div>
+            <button id="turnOn">On</button>
+            <button id="turnOff">Off</button>
+        </div>
+    </main>
+
+
+    <script>
+        const turnOn = document.getElementById('turnOn');
+        const turnOff = document.getElementById('turnOff');
+        const lamp = document.getElementById('lamp');
+
+        function isLampBroken(){
+            return lamp.src.indexOf('quebrada') > -1;
+        }
+
+        function lampOn(){
+            if(!isLampBroken()){
+            lamp.src = './img/ligada.png';
+            }
+        } 
+
+        function lampOff(){
+            if(!isLampBroken()){
+            lamp.src = './img/desligada.png';
+            }
+        }
+        function lampBroken(){
+            lamp.src = './img/quebrada.png';
+        }
+
+        turnOn.addEventListener('click', lampOn);
+        turnOff.addEventListener('click', lampOff);
+        lamp.addEventListener('mouseover', lampOn);
+        lamp.addEventListener('mouseleave', lampOff);
+        lamp.addEventListener('dblclick', lampBroken);
+
+    </script>
+</body>
+</html>

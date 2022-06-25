@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LampadaComJs</title>
+    <style>
+        *{
+            margin: 0;
+
+        }
+        head, main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button{
+            width: 80px;
+            height: 40px;
+            background-color: black;
+            color: aqua;
+            
+        }
+        #turnOn:hover{
+            background: green;
+        }
+        #turnOff:hover{
+            background: rgb(255, 88, 124);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lâmpada com JS</h1>
+    </header>
+    <main>
+        <div>
+            <img src="./img/desligada.jpg" alt="Lámpada" id="lamp">
+        </div>
+        <div>
+            <button id="turnOn">On</button>
+            <button id="turnOff">Off</button>
+        </div>
+    </main>
+
+
+    <script>
+        const turnOn = document.getElementById('turnOn');
+        const turnOff = document.getElementById('turnOff');
+        const lamp = document.getElementById('lamp');
+
+        const lampOn(){
+            lamp.src = './img'
+        } 
+
+        turnOn.addEventListener('click', lampOn);
+
+
+    </script>
+</body>
+</html>
